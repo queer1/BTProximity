@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 
+@class BPTracker;
+typedef void (^BPRangeStatusUpdateBlock)(BPTracker *sender);
+
 @interface BPTracker : NSObject
 {
 }
 
 + (BPTracker*)sharedTracker;
-
 + (float)powerLossOverMeters:(float)meters;
 
 @property (nonatomic, strong) IOBluetoothDevice *device;
@@ -22,5 +24,5 @@
 @property (nonatomic, assign) BluetoothHCIRSSIValue currentRSSI;
 @property (nonatomic, assign) BOOL inRange;
 @property (nonatomic, assign) BOOL isMonitoring;
-
+@property (nonatomic, copy) BPRangeStatusUpdateBlock rangeStatusUpdateBlock;
 @end

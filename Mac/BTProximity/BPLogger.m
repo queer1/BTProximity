@@ -10,6 +10,7 @@
 
 
 NSDateFormatter *dateFormatter;
+NSMutableArray *storage;
 
 @implementation BPLogger
 
@@ -21,6 +22,13 @@ NSDateFormatter *dateFormatter;
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
         [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     }
+    
+    if(!storage)
+    {
+        storage = [[NSMutableArray array] retain];
+    }
+
+    [storage addObject:text];
 }
 
 @end

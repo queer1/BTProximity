@@ -86,7 +86,10 @@
             [BPLogger log:@"in range"];
             self.inRange = YES;
 
-            [self unlock];
+            if(self.rangeStatusUpdateBlock)
+            {
+                self.rangeStatusUpdateBlock(self);
+            }
         }
     }else
     {
@@ -95,7 +98,10 @@
             [BPLogger log:@"out of range"];
             self.inRange = NO;
 
-            [self lock];
+            if(self.rangeStatusUpdateBlock)
+            {
+                self.rangeStatusUpdateBlock(self);
+            }
         }
     }
 }
