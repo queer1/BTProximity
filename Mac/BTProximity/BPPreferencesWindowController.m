@@ -9,39 +9,60 @@
 #import "BPPreferencesWindowController.h"
 
 
+@interface BPPreferencesWindowController ()
+@property (nonatomic, retain) NSTimer *updateTimer;
+@end
+
 @implementation BPPreferencesWindowController
-
-
-/*
- 
- NSAttributedString *s = [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%@: %@\n", [self.dateFormatter stringFromDate:[NSDate date]], text]] autorelease];
-
- [[weakSelf.loggingTextView textStorage] appendAttributedString:s];
- [weakSelf.loggingTextView scrollRangeToVisible:NSMakeRange([[weakSelf.loggingTextView string] length], 0)];
-
- */
-
-
-/*
- 
- if(self.currentRSSI == 127)
- {
- self.RSSILabel.stringValue = @"RSSI: not connected";
- }else
- {
- self.RSSILabel.stringValue = [NSString stringWithFormat:@"RSSI: %d", self.currentRSSI];
- }
-
- */
 
 - (void)dealloc
 {
+    self.updateTimer = nil;
     [super dealloc];
+}
+
+- (void)windowDidLoad
+{
+    [super windowDidLoad];
+
+    __block typeof(self) weakSelf = self;
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.25
+                                                         block:^(NSTimer *timer) {
+                                                             weakSelf.RSSILabel.stringValue = [BPTracker sharedTracker].device ? [NSString stringWithFormat:@"RSSI: %d", [BPTracker sharedTracker].currentRSSI] : @"RSSI: not connected";
+
+                                                             NSAttributedString *s = [[[NSAttributedString alloc] initWithString:[BPLogger getStorage]] autorelease];
+
+                                                             [[weakSelf.logTextView textStorage] setAttributedString:s];
+                                                             [weakSelf.logTextView scrollRangeToVisible:NSMakeRange([[weakSelf.logTextView string] length], 0)];
+                                                         }
+                                                       repeats:YES];
 }
 
 - (void)windowWillClose:(NSNotification *)notification
 {
     [self release];
+}
+
+#pragma mark - actions
+- (IBAction)selectDevicePressed:(id)sender
+{
+    [[BPTracker sharedTracker] selectDevice];
+}
+
+- (IBAction)startPressed:(id)sender
+{
+    [[BPTracker sharedTracker] startMonitoring];
+}
+
+- (IBAction)stopPressed:(id)sender
+{
+    [[BPTracker sharedTracker] stopMonitoring];
+}
+
+#pragma mark - text field delegate
+- (void)controlTextDidChange:(NSNotification *)obj
+{
+    [BPSecHelpers setPassword:self.passwordTextField.stringValue];
 }
 
 @end

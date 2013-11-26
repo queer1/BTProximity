@@ -34,9 +34,11 @@
         if(tracker.deviceInRange)
         {
             [BPLogger log:@"device in range"];
+            [BPSecHelpers unlock];
         }else
         {
             [BPLogger log:@"device not in range"];
+            [BPSecHelpers lock];
         }
     };
 }

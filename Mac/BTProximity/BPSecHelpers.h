@@ -12,6 +12,7 @@
 @interface BPSecHelpers : NSObject
 
 + (void)lock;
-+ (void)unlockWithPassword:(NSString*)password;
++ (void)unlock;
++ (void)setPassword:(NSString*)password;
 
 @end

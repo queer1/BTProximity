@@ -6,6 +6,9 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="BPPreferencesWindowController">
             <connections>
+                <outlet property="RSSILabel" destination="CUc-mT-2IO" id="2p2-ej-RiP"/>
+                <outlet property="logTextView" destination="D0T-FQ-MJh" id="Ngg-90-vhl"/>
+                <outlet property="passwordTextField" destination="ZMM-9D-zXy" id="sN3-ES-kLq"/>
                 <outlet property="window" destination="j3n-0n-B9Z" id="dag-yO-FPQ"/>
             </connections>
         </customObject>
@@ -27,6 +30,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="selectDevicePressed:" target="-2" id="Vxn-V1-xDb"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VFx-Qn-OIC">
                         <rect key="frame" x="482" y="79" width="158" height="32"/>
@@ -35,6 +41,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="startPressed:" target="-2" id="iR5-hu-UHW"/>
+                        </connections>
                     </button>
                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nTs-c6-bT9">
                         <rect key="frame" x="482" y="46" width="158" height="32"/>
@@ -43,6 +52,9 @@
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
+                        <connections>
+                            <action selector="stopPressed:" target="-2" id="JIv-kf-gUP"/>
+                        </connections>
                     </button>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="CUc-mT-2IO">
                         <rect key="frame" x="486" y="286" width="150" height="17"/>
@@ -111,6 +123,9 @@
                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </textFieldCell>
+                        <connections>
+                            <outlet property="delegate" destination="-2" id="OCO-GA-FMU"/>
+                        </connections>
                     </textField>
                 </subviews>
                 <constraints>

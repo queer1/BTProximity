@@ -43,10 +43,35 @@
 
     [BPLogger log:[NSString stringWithFormat:@"current estimated distance (in perfect conditions): %.02f meters", self.initialDistance]];
 
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:1
-                                                  target:self
-                                                selector:@selector(handleTimer:)
-                                                userInfo:nil
+    __block typeof(self) weakSelf = self;
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                   block:^(NSTimer *timer) {
+                                                       [weakSelf updateRSSI];
+
+                                                       if(weakSelf.currentRSSI > weakSelf.inRangeThreshold)
+                                                       {
+                                                           if(!weakSelf.deviceInRange)
+                                                           {
+                                                               weakSelf.deviceInRange = YES;
+
+                                                               if(weakSelf.rangeStatusUpdateBlock)
+                                                               {
+                                                                   weakSelf.rangeStatusUpdateBlock(weakSelf);
+                                                               }
+                                                           }
+                                                       }else
+                                                       {
+                                                           if(weakSelf.deviceInRange)
+                                                           {
+                                                               weakSelf.deviceInRange = NO;
+                                                               
+                                                               if(weakSelf.rangeStatusUpdateBlock)
+                                                               {
+                                                                   weakSelf.rangeStatusUpdateBlock(weakSelf);
+                                                               }
+                                                           }
+                                                       }
+                                                   }
                                                  repeats:YES];
 }
 
@@ -73,37 +98,6 @@
     {
         self.device = [results objectAtIndex:0];
         [BPLogger log:[NSString stringWithFormat:@"selected %@ (%@)", self.device.name, self.device.addressString]];
-    }
-}
-
-- (void)handleTimer:(NSTimer *)theTimer
-{
-    [self updateRSSI];
-
-    if(self.currentRSSI > self.inRangeThreshold)
-    {
-        if(!self.deviceInRange)
-        {
-            [BPLogger log:@"in range"];
-            self.deviceInRange = YES;
-
-            if(self.rangeStatusUpdateBlock)
-            {
-                self.rangeStatusUpdateBlock(self);
-            }
-        }
-    }else
-    {
-        if(self.deviceInRange)
-        {
-            [BPLogger log:@"out of range"];
-            self.deviceInRange = NO;
-
-            if(self.rangeStatusUpdateBlock)
-            {
-                self.rangeStatusUpdateBlock(self);
-            }
-        }
     }
 }
 

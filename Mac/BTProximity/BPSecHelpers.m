@@ -9,6 +9,8 @@
 #import "BPSecHelpers.h"
 
 
+NSString *password;
+
 @implementation BPSecHelpers
 
 + (void)lock
@@ -41,7 +43,7 @@
     });
 }
 
-+ (void)unlockWithPassword:(NSString*)password
++ (void)unlock
 {
     NSString *s = @"\
 tell application \"System Events\" to keystroke \"%@\"\n\
@@ -50,6 +52,16 @@ tell application \"System Events\" to keystroke return\
 
     NSAppleScript *script = [[[NSAppleScript alloc] initWithSource:[NSString stringWithFormat:s, password]] autorelease];
     [script executeAndReturnError:nil];
+}
+
++ (void)setPassword:(NSString*)p
+{
+    if(password)
+    {
+        [password release];
+    }
+
+    password = [p copy];
 }
 
 #pragma mark - helpers

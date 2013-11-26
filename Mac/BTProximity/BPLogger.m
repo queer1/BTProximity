@@ -28,8 +28,14 @@ NSMutableArray *storage;
         storage = [[NSMutableArray array] retain];
     }
 
-    [storage addObject:text];
-    NSLog(@"%@", text);
+    NSString *formattedText = [NSString stringWithFormat:@"%@: %@", [dateFormatter stringFromDate:[NSDate date]], text];
+    [storage addObject:formattedText];
+    NSLog(@"%@", formattedText);
+}
+
++ (NSString*)getStorage
+{
+    return [storage componentsJoinedByString:@"\n"];
 }
 
 @end

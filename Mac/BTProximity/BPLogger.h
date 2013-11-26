@@ -12,5 +12,6 @@
 @interface BPLogger : NSObject
 
 + (void)log:(NSString*)text;
++ (NSString*)getStorage;
 
 @end
