@@ -29,6 +29,7 @@ NSMutableArray *storage;
     }
 
     [storage addObject:text];
+    NSLog(@"%@", text);
 }
 
 @end

@@ -24,6 +24,7 @@
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[BPTracker alloc] init];
+        sharedInstance.inRangeThreshold = -70;
     });
     return sharedInstance;
 }
@@ -36,7 +37,7 @@
     [self updateRSSI];
     [BPLogger log:@"started"];
 
-    self.inRange = YES;
+    self.deviceInRange = YES;
     self.initialRSSI = self.currentRSSI;
     self.initialDistance = (float)abs(self.currentRSSI) / [BPTracker powerLossOverMeters:1];
 
@@ -61,7 +62,7 @@
     self.timer = nil;
 }
 
-- (void)changeDevice
+- (void)selectDevice
 {
     IOBluetoothDeviceSelectorController *deviceSelector = [IOBluetoothDeviceSelectorController deviceSelector];
     [deviceSelector runModal];
@@ -79,12 +80,12 @@
 {
     [self updateRSSI];
 
-    if(self.currentRSSI > -70)
+    if(self.currentRSSI > self.inRangeThreshold)
     {
-        if(!self.inRange)
+        if(!self.deviceInRange)
         {
             [BPLogger log:@"in range"];
-            self.inRange = YES;
+            self.deviceInRange = YES;
 
             if(self.rangeStatusUpdateBlock)
             {
@@ -93,10 +94,10 @@
         }
     }else
     {
-        if(self.inRange)
+        if(self.deviceInRange)
         {
             [BPLogger log:@"out of range"];
-            self.inRange = NO;
+            self.deviceInRange = NO;
 
             if(self.rangeStatusUpdateBlock)
             {

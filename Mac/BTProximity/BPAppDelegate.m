@@ -29,31 +29,29 @@
     self.statusBarItem.menu = self.statusBarMenu;
 
     [BPLogger log:[NSString stringWithFormat:@"power loss over 1 meter (perfect conditions): %.02f", [BPTracker powerLossOverMeters:1]]];
+
+    [BPTracker sharedTracker].rangeStatusUpdateBlock = ^(BPTracker *tracker){
+        if(tracker.deviceInRange)
+        {
+            [BPLogger log:@"device in range"];
+        }else
+        {
+            [BPLogger log:@"device not in range"];
+        }
+    };
 }
 
 #pragma mark - actions
 - (void)startMonitoring
 {
     self.statusBarStatus.title = @"Disable BTProximity";
+    [[BPTracker sharedTracker] startMonitoring];
 }
 
 - (void)stopMonitoring
 {
     self.statusBarStatus.title = @"Enable BTProximity";
-}
-
-- (IBAction)selectDevicePressed:(id)sender
-{
-}
-
-- (IBAction)startPressed:(id)sender
-{
-    [self startMonitoring];
-}
-
-- (IBAction)stopPressed:(id)sender
-{
-    [self stopMonitoring];
+    [[BPTracker sharedTracker] stopMonitoring];
 }
 
 - (IBAction)statusBarPreferencesPressed:(id)sender

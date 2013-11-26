@@ -152,11 +152,9 @@
 		D81F919A18411FA500076509 /* BTProximity */ = {
 			isa = PBXGroup;
 			children = (
+				D85EB502184519B600A88E81 /* Controllers */,
 				D81F91A618411FA500076509 /* BPAppDelegate.h */,
 				D81F91A718411FA500076509 /* BPAppDelegate.m */,
-				D83FD5301844DD93005F3CB4 /* BPPreferencesWindowController.h */,
-				D83FD5311844DD93005F3CB4 /* BPPreferencesWindowController.m */,
-				D83FD53C1844E47B005F3CB4 /* BPPreferencesWindowController.xib */,
 				D83FD5391844E177005F3CB4 /* BPLogger.h */,
 				D83FD53A1844E177005F3CB4 /* BPLogger.m */,
 				D83FD5331844DDB9005F3CB4 /* BPTracker.h */,
@@ -198,6 +196,16 @@
 				D81F91BB18411FA600076509 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D85EB502184519B600A88E81 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D83FD5301844DD93005F3CB4 /* BPPreferencesWindowController.h */,
+				D83FD5311844DD93005F3CB4 /* BPPreferencesWindowController.m */,
+				D83FD53C1844E47B005F3CB4 /* BPPreferencesWindowController.xib */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
