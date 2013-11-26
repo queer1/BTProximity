@@ -1,0 +1,570 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4FC5740915EB410FA7DCA439 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 768ED963F8AF40B6B0F49C0C /* libPods.a */; };
+		D81F919518411FA500076509 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F919418411FA500076509 /* Cocoa.framework */; };
+		D81F919F18411FA500076509 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81F919D18411FA500076509 /* InfoPlist.strings */; };
+		D81F91A118411FA500076509 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F91A018411FA500076509 /* main.m */; };
+		D81F91A518411FA500076509 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D81F91A318411FA500076509 /* Credits.rtf */; };
+		D81F91A818411FA500076509 /* BPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F91A718411FA500076509 /* BPAppDelegate.m */; };
+		D81F91AB18411FA500076509 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = D81F91A918411FA500076509 /* MainMenu.xib */; };
+		D81F91AD18411FA500076509 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D81F91AC18411FA500076509 /* Images.xcassets */; };
+		D81F91B418411FA600076509 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F91B318411FA600076509 /* XCTest.framework */; };
+		D81F91B518411FA600076509 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F919418411FA500076509 /* Cocoa.framework */; };
+		D81F91BD18411FA600076509 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81F91BB18411FA600076509 /* InfoPlist.strings */; };
+		D81F91BF18411FA600076509 /* BTProximityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F91BE18411FA600076509 /* BTProximityTests.m */; };
+		D81F91C9184120A500076509 /* IOBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F91C8184120A500076509 /* IOBluetooth.framework */; };
+		D81F91CB184120AA00076509 /* IOBluetoothUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F91CA184120AA00076509 /* IOBluetoothUI.framework */; };
+		D83FD52D18434969005F3CB4 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83FD52C18434969005F3CB4 /* IOKit.framework */; };
+		D83FD52F18434BF7005F3CB4 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D83FD52E18434BF7005F3CB4 /* CoreServices.framework */; };
+		D83FD5321844DD93005F3CB4 /* BPPreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D83FD5311844DD93005F3CB4 /* BPPreferencesWindowController.m */; };
+		D83FD5351844DDB9005F3CB4 /* BPTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = D83FD5341844DDB9005F3CB4 /* BPTracker.m */; };
+		D83FD5381844DEC4005F3CB4 /* BPSecHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = D83FD5371844DEC4005F3CB4 /* BPSecHelpers.m */; };
+		D83FD53B1844E177005F3CB4 /* BPLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = D83FD53A1844E177005F3CB4 /* BPLogger.m */; };
+		D83FD53D1844E47B005F3CB4 /* BPPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83FD53C1844E47B005F3CB4 /* BPPreferencesWindowController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D81F91B618411FA600076509 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D81F918918411FA500076509 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D81F919018411FA500076509;
+			remoteInfo = BTProximity;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		768ED963F8AF40B6B0F49C0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81F919118411FA500076509 /* BTProximity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTProximity.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81F919418411FA500076509 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		D81F919718411FA500076509 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		D81F919818411FA500076509 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		D81F919918411FA500076509 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D81F919C18411FA500076509 /* BTProximity-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BTProximity-Info.plist"; sourceTree = "<group>"; };
+		D81F919E18411FA500076509 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D81F91A018411FA500076509 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D81F91A218411FA500076509 /* BTProximity-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BTProximity-Prefix.pch"; sourceTree = "<group>"; };
+		D81F91A418411FA500076509 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		D81F91A618411FA500076509 /* BPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BPAppDelegate.h; sourceTree = "<group>"; };
+		D81F91A718411FA500076509 /* BPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BPAppDelegate.m; sourceTree = "<group>"; };
+		D81F91AA18411FA500076509 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
+		D81F91AC18411FA500076509 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		D81F91B218411FA600076509 /* BTProximityTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BTProximityTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D81F91B318411FA600076509 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		D81F91BA18411FA600076509 /* BTProximityTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BTProximityTests-Info.plist"; sourceTree = "<group>"; };
+		D81F91BC18411FA600076509 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D81F91BE18411FA600076509 /* BTProximityTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BTProximityTests.m; sourceTree = "<group>"; };
+		D81F91C8184120A500076509 /* IOBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetooth.framework; path = System/Library/Frameworks/IOBluetooth.framework; sourceTree = SDKROOT; };
+		D81F91CA184120AA00076509 /* IOBluetoothUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOBluetoothUI.framework; path = System/Library/Frameworks/IOBluetoothUI.framework; sourceTree = SDKROOT; };
+		D83FD52C18434969005F3CB4 /* IOKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IOKit.framework; path = System/Library/Frameworks/IOKit.framework; sourceTree = SDKROOT; };
+		D83FD52E18434BF7005F3CB4 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		D83FD5301844DD93005F3CB4 /* BPPreferencesWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPPreferencesWindowController.h; sourceTree = "<group>"; };
+		D83FD5311844DD93005F3CB4 /* BPPreferencesWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPPreferencesWindowController.m; sourceTree = "<group>"; };
+		D83FD5331844DDB9005F3CB4 /* BPTracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPTracker.h; sourceTree = "<group>"; };
+		D83FD5341844DDB9005F3CB4 /* BPTracker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPTracker.m; sourceTree = "<group>"; };
+		D83FD5361844DEC4005F3CB4 /* BPSecHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPSecHelpers.h; sourceTree = "<group>"; };
+		D83FD5371844DEC4005F3CB4 /* BPSecHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPSecHelpers.m; sourceTree = "<group>"; };
+		D83FD5391844E177005F3CB4 /* BPLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPLogger.h; sourceTree = "<group>"; };
+		D83FD53A1844E177005F3CB4 /* BPLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPLogger.m; sourceTree = "<group>"; };
+		D83FD53C1844E47B005F3CB4 /* BPPreferencesWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPPreferencesWindowController.xib; sourceTree = "<group>"; };
+		FA71F544DB4E4D85AC65640B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D81F918E18411FA500076509 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83FD52F18434BF7005F3CB4 /* CoreServices.framework in Frameworks */,
+				D83FD52D18434969005F3CB4 /* IOKit.framework in Frameworks */,
+				D81F91CB184120AA00076509 /* IOBluetoothUI.framework in Frameworks */,
+				D81F91C9184120A500076509 /* IOBluetooth.framework in Frameworks */,
+				D81F919518411FA500076509 /* Cocoa.framework in Frameworks */,
+				4FC5740915EB410FA7DCA439 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81F91AF18411FA600076509 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81F91B518411FA600076509 /* Cocoa.framework in Frameworks */,
+				D81F91B418411FA600076509 /* XCTest.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D81F918818411FA500076509 = {
+			isa = PBXGroup;
+			children = (
+				D81F919A18411FA500076509 /* BTProximity */,
+				D81F919B18411FA500076509 /* Supporting Files */,
+				D81F91B818411FA600076509 /* BTProximityTests */,
+				D81F919318411FA500076509 /* Frameworks */,
+				D81F919218411FA500076509 /* Products */,
+				FA71F544DB4E4D85AC65640B /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		D81F919218411FA500076509 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D81F919118411FA500076509 /* BTProximity.app */,
+				D81F91B218411FA600076509 /* BTProximityTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D81F919318411FA500076509 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D83FD52E18434BF7005F3CB4 /* CoreServices.framework */,
+				D83FD52C18434969005F3CB4 /* IOKit.framework */,
+				D81F91CA184120AA00076509 /* IOBluetoothUI.framework */,
+				D81F91C8184120A500076509 /* IOBluetooth.framework */,
+				D81F919418411FA500076509 /* Cocoa.framework */,
+				D81F91B318411FA600076509 /* XCTest.framework */,
+				D81F919618411FA500076509 /* Other Frameworks */,
+				768ED963F8AF40B6B0F49C0C /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D81F919618411FA500076509 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D81F919718411FA500076509 /* AppKit.framework */,
+				D81F919818411FA500076509 /* CoreData.framework */,
+				D81F919918411FA500076509 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		D81F919A18411FA500076509 /* BTProximity */ = {
+			isa = PBXGroup;
+			children = (
+				D81F91A618411FA500076509 /* BPAppDelegate.h */,
+				D81F91A718411FA500076509 /* BPAppDelegate.m */,
+				D83FD5301844DD93005F3CB4 /* BPPreferencesWindowController.h */,
+				D83FD5311844DD93005F3CB4 /* BPPreferencesWindowController.m */,
+				D83FD53C1844E47B005F3CB4 /* BPPreferencesWindowController.xib */,
+				D83FD5391844E177005F3CB4 /* BPLogger.h */,
+				D83FD53A1844E177005F3CB4 /* BPLogger.m */,
+				D83FD5331844DDB9005F3CB4 /* BPTracker.h */,
+				D83FD5341844DDB9005F3CB4 /* BPTracker.m */,
+				D83FD5361844DEC4005F3CB4 /* BPSecHelpers.h */,
+				D83FD5371844DEC4005F3CB4 /* BPSecHelpers.m */,
+				D81F91A918411FA500076509 /* MainMenu.xib */,
+				D81F91AC18411FA500076509 /* Images.xcassets */,
+			);
+			path = BTProximity;
+			sourceTree = "<group>";
+		};
+		D81F919B18411FA500076509 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D81F919C18411FA500076509 /* BTProximity-Info.plist */,
+				D81F919D18411FA500076509 /* InfoPlist.strings */,
+				D81F91A018411FA500076509 /* main.m */,
+				D81F91A218411FA500076509 /* BTProximity-Prefix.pch */,
+				D81F91A318411FA500076509 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			path = BTProximity;
+			sourceTree = "<group>";
+		};
+		D81F91B818411FA600076509 /* BTProximityTests */ = {
+			isa = PBXGroup;
+			children = (
+				D81F91BE18411FA600076509 /* BTProximityTests.m */,
+				D81F91B918411FA600076509 /* Supporting Files */,
+			);
+			path = BTProximityTests;
+			sourceTree = "<group>";
+		};
+		D81F91B918411FA600076509 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D81F91BA18411FA600076509 /* BTProximityTests-Info.plist */,
+				D81F91BB18411FA600076509 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D81F919018411FA500076509 /* BTProximity */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D81F91C218411FA600076509 /* Build configuration list for PBXNativeTarget "BTProximity" */;
+			buildPhases = (
+				406C944DA79842D7952A2C20 /* Check Pods Manifest.lock */,
+				D81F918D18411FA500076509 /* Sources */,
+				D81F918E18411FA500076509 /* Frameworks */,
+				D81F918F18411FA500076509 /* Resources */,
+				1A056D66FC8242C08E14EB86 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BTProximity;
+			productName = BTProximity;
+			productReference = D81F919118411FA500076509 /* BTProximity.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D81F91B118411FA600076509 /* BTProximityTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D81F91C518411FA600076509 /* Build configuration list for PBXNativeTarget "BTProximityTests" */;
+			buildPhases = (
+				D81F91AE18411FA600076509 /* Sources */,
+				D81F91AF18411FA600076509 /* Frameworks */,
+				D81F91B018411FA600076509 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D81F91B718411FA600076509 /* PBXTargetDependency */,
+			);
+			name = BTProximityTests;
+			productName = BTProximityTests;
+			productReference = D81F91B218411FA600076509 /* BTProximityTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D81F918918411FA500076509 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BP;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Bogdan Covaci";
+				TargetAttributes = {
+					D81F91B118411FA600076509 = {
+						TestTargetID = D81F919018411FA500076509;
+					};
+				};
+			};
+			buildConfigurationList = D81F918C18411FA500076509 /* Build configuration list for PBXProject "BTProximity" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D81F918818411FA500076509;
+			productRefGroup = D81F919218411FA500076509 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D81F919018411FA500076509 /* BTProximity */,
+				D81F91B118411FA600076509 /* BTProximityTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D81F918F18411FA500076509 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81F919F18411FA500076509 /* InfoPlist.strings in Resources */,
+				D81F91AD18411FA500076509 /* Images.xcassets in Resources */,
+				D81F91A518411FA500076509 /* Credits.rtf in Resources */,
+				D83FD53D1844E47B005F3CB4 /* BPPreferencesWindowController.xib in Resources */,
+				D81F91AB18411FA500076509 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81F91B018411FA600076509 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81F91BD18411FA600076509 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A056D66FC8242C08E14EB86 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		406C944DA79842D7952A2C20 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D81F918D18411FA500076509 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D83FD5351844DDB9005F3CB4 /* BPTracker.m in Sources */,
+				D83FD53B1844E177005F3CB4 /* BPLogger.m in Sources */,
+				D81F91A818411FA500076509 /* BPAppDelegate.m in Sources */,
+				D83FD5381844DEC4005F3CB4 /* BPSecHelpers.m in Sources */,
+				D81F91A118411FA500076509 /* main.m in Sources */,
+				D83FD5321844DD93005F3CB4 /* BPPreferencesWindowController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D81F91AE18411FA600076509 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D81F91BF18411FA600076509 /* BTProximityTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D81F91B718411FA600076509 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D81F919018411FA500076509 /* BTProximity */;
+			targetProxy = D81F91B618411FA600076509 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D81F919D18411FA500076509 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F919E18411FA500076509 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D81F91A318411FA500076509 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F91A418411FA500076509 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		D81F91A918411FA500076509 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F91AA18411FA500076509 /* Base */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+		D81F91BB18411FA600076509 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D81F91BC18411FA600076509 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D81F91C018411FA600076509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		D81F91C118411FA600076509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		D81F91C318411FA600076509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA71F544DB4E4D85AC65640B /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTProximity/BTProximity-Prefix.pch";
+				INFOPLIST_FILE = "BTProximity/BTProximity-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D81F91C418411FA600076509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA71F544DB4E4D85AC65640B /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTProximity/BTProximity-Prefix.pch";
+				INFOPLIST_FILE = "BTProximity/BTProximity-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		D81F91C618411FA600076509 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BTProximity.app/Contents/MacOS/BTProximity";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTProximity/BTProximity-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BTProximityTests/BTProximityTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		D81F91C718411FA600076509 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/BTProximity.app/Contents/MacOS/BTProximity";
+				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(inherited)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BTProximity/BTProximity-Prefix.pch";
+				INFOPLIST_FILE = "BTProximityTests/BTProximityTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D81F918C18411FA500076509 /* Build configuration list for PBXProject "BTProximity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81F91C018411FA600076509 /* Debug */,
+				D81F91C118411FA600076509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D81F91C218411FA600076509 /* Build configuration list for PBXNativeTarget "BTProximity" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81F91C318411FA600076509 /* Debug */,
+				D81F91C418411FA600076509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D81F91C518411FA600076509 /* Build configuration list for PBXNativeTarget "BTProximityTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D81F91C618411FA600076509 /* Debug */,
+				D81F91C718411FA600076509 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D81F918918411FA500076509 /* Project object */;
+}

@@ -1,0 +1,20 @@
+PODS:
+  - BlocksKit (1.8.3):
+    - libffi
+  - CocoaSecurity (1.2.2)
+  - DTBonjour (1.0.0)
+  - SSKeychain (1.2.1)
+
+DEPENDENCIES:
+  - BlocksKit
+  - CocoaSecurity
+  - DTBonjour
+  - SSKeychain
+
+SPEC CHECKSUMS:
+  BlocksKit: 27257f9cbbec0ea98c80ba83cc2ea7111ae62eb2
+  CocoaSecurity: f53058286161eca4483a8e7370d7c99e85e4a592
+  DTBonjour: b88769fc76c5557b2ce2111d8305cd56822d63d8
+  SSKeychain: d18926838c2e7cd342e2a49e9f869858e49f035a
+
+COCOAPODS: 0.25.0

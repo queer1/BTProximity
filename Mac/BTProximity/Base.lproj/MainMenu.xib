@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="4514" systemVersion="13A603" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="4514"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
+            <connections>
+                <outlet property="delegate" destination="494" id="495"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application"/>
+        <menu autoenablesItems="NO" id="g6E-iI-2nB">
+            <items>
+                <menuItem title="Preferences" id="C03-Hx-xzY">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="statusBarPreferencesPressed:" target="494" id="gv9-jI-cVu"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Enable BTProximity" id="8gV-YL-Bd0">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="statusBarStatusPressed:" target="494" id="tVJ-i0-5SW"/>
+                    </connections>
+                </menuItem>
+                <menuItem title="Quit BTProximity" id="rRF-Fe-VG9">
+                    <modifierMask key="keyEquivalentModifierMask"/>
+                    <connections>
+                        <action selector="statusBarQuitPressed:" target="494" id="fdC-jH-JQR"/>
+                    </connections>
+                </menuItem>
+            </items>
+        </menu>
+        <customObject id="494" customClass="BPAppDelegate">
+            <connections>
+                <outlet property="statusBarMenu" destination="g6E-iI-2nB" id="t3D-mu-XIC"/>
+                <outlet property="statusBarStatus" destination="8gV-YL-Bd0" id="pTY-we-njz"/>
+            </connections>
+        </customObject>
+        <customObject id="420" customClass="NSFontManager"/>
+    </objects>
+</document>

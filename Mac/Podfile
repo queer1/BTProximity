@@ -1,0 +1,4 @@
+pod 'SSKeychain'
+pod 'DTBonjour'
+pod 'BlocksKit'
+pod 'CocoaSecurity'
