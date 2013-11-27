@@ -30,7 +30,6 @@ NSMutableArray *storage;
 
     NSString *formattedText = [NSString stringWithFormat:@"%@: %@", [dateFormatter stringFromDate:[NSDate date]], text];
     [storage addObject:formattedText];
-    NSLog(@"%@", formattedText);
 }
 
 + (NSString*)getStorage
