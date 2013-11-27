@@ -12,6 +12,7 @@
 
 @interface BPAppDelegate ()
 @property (nonatomic, retain) NSStatusItem *statusBarItem;
+@property (nonatomic, retain) BPPreferencesWindowController *preferencesController;
 @end
 
 @implementation BPAppDelegate
@@ -41,6 +42,10 @@
             [BPSecHelpers lock];
         }
     };
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self statusBarPreferencesPressed:nil];
+    });
 }
 
 #pragma mark - actions
@@ -58,10 +63,14 @@
 
 - (IBAction)statusBarPreferencesPressed:(id)sender
 {
-    BPPreferencesWindowController *controller = [[BPPreferencesWindowController alloc] initWithWindowNibName:@"BPPreferencesWindowController"];
+    if(!self.preferencesController)
+    {
+        self.preferencesController = [[[BPPreferencesWindowController alloc] initWithWindowNibName:@"BPPreferencesWindowController"] autorelease];
+        self.preferencesController.window.delegate = self;
+    }
 
     [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
-	[controller.window makeKeyAndOrderFront:nil];
+	[self.preferencesController.window makeKeyAndOrderFront:nil];
 }
 
 - (IBAction)statusBarStatusPressed:(id)sender
@@ -75,6 +84,17 @@
 - (IBAction)statusBarQuitPressed:(id)sender
 {
     [[NSRunningApplication currentApplication] terminate];
+}
+
+#pragma mark - window delegate
+- (void)windowWillClose:(NSNotification *)notification
+{
+    NSWindow *window = (NSWindow*)notification.object;
+
+    if(window == self.preferencesController.window)
+    {
+        self.preferencesController = nil;
+    }
 }
 
 @end

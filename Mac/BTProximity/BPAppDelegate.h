@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 
 
-@interface BPAppDelegate : NSObject <NSApplicationDelegate>
+@interface BPAppDelegate : NSObject <NSApplicationDelegate, NSWindowDelegate>
 {
 }
 

@@ -17,7 +17,9 @@
 
 - (void)dealloc
 {
+    [self.updateTimer invalidate];
     self.updateTimer = nil;
+
     [super dealloc];
 }
 
@@ -36,11 +38,6 @@
                                                              [weakSelf.logTextView scrollRangeToVisible:NSMakeRange([[weakSelf.logTextView string] length], 0)];
                                                          }
                                                        repeats:YES];
-}
-
-- (void)windowWillClose:(NSNotification *)notification
-{
-    [self release];
 }
 
 #pragma mark - actions
