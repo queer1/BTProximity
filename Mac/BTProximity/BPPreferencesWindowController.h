@@ -18,6 +18,6 @@
 - (IBAction)stopPressed:(id)sender;
 
 @property (assign) IBOutlet NSTextField *RSSILabel;
-@property (assign) IBOutlet NSTextField *passwordTextField;
 @property (assign) IBOutlet NSTextView *logTextView;
+@property (assign) IBOutlet NSSecureTextField *passwordTextField;
 @end
