@@ -28,7 +28,7 @@
     [super windowDidLoad];
 
     NSString *password = [SSKeychain passwordForService:@"BTProximity" account:@"BTProximity"];
-    self.passwordTextField.stringValue = password ? password : @"3u";
+    self.passwordTextField.stringValue = password ? password : @"";
 
     __block typeof(self) weakSelf = self;
     self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.25
