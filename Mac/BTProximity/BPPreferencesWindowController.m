@@ -59,6 +59,14 @@
     [[BPTracker sharedTracker] stopMonitoring];
 }
 
+- (IBAction)thresholdSliderChanged:(id)sender
+{
+    int value = self.thresholdSlider.intValue;
+
+    self.thresholdLabel.stringValue = [NSString stringWithFormat:@"Threshold: %d", value];
+    [BPTracker sharedTracker].inRangeThreshold = value;
+}
+
 #pragma mark - text field delegate
 - (void)controlTextDidChange:(NSNotification *)obj
 {
