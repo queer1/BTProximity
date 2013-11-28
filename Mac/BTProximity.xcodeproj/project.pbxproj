@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FC5740915EB410FA7DCA439 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 768ED963F8AF40B6B0F49C0C /* libPods.a */; };
+		D80A2B3D1847FE15009F2761 /* BPSmootheningFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D80A2B3C1847FE15009F2761 /* BPSmootheningFilter.m */; };
 		D81F919518411FA500076509 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81F919418411FA500076509 /* Cocoa.framework */; };
 		D81F919F18411FA500076509 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D81F919D18411FA500076509 /* InfoPlist.strings */; };
 		D81F91A118411FA500076509 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D81F91A018411FA500076509 /* main.m */; };
@@ -42,6 +43,8 @@
 
 /* Begin PBXFileReference section */
 		768ED963F8AF40B6B0F49C0C /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80A2B3B1847FE15009F2761 /* BPSmootheningFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPSmootheningFilter.h; sourceTree = "<group>"; };
+		D80A2B3C1847FE15009F2761 /* BPSmootheningFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPSmootheningFilter.m; sourceTree = "<group>"; };
 		D81F919118411FA500076509 /* BTProximity.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BTProximity.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D81F919418411FA500076509 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D81F919718411FA500076509 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -161,6 +164,8 @@
 				D83FD5341844DDB9005F3CB4 /* BPTracker.m */,
 				D83FD5361844DEC4005F3CB4 /* BPSecHelpers.h */,
 				D83FD5371844DEC4005F3CB4 /* BPSecHelpers.m */,
+				D80A2B3B1847FE15009F2761 /* BPSmootheningFilter.h */,
+				D80A2B3C1847FE15009F2761 /* BPSmootheningFilter.m */,
 				D81F91A918411FA500076509 /* MainMenu.xib */,
 				D81F91AC18411FA500076509 /* Images.xcassets */,
 			);
@@ -345,6 +350,7 @@
 			files = (
 				D83FD5351844DDB9005F3CB4 /* BPTracker.m in Sources */,
 				D83FD53B1844E177005F3CB4 /* BPLogger.m in Sources */,
+				D80A2B3D1847FE15009F2761 /* BPSmootheningFilter.m in Sources */,
 				D81F91A818411FA500076509 /* BPAppDelegate.m in Sources */,
 				D83FD5381844DEC4005F3CB4 /* BPSecHelpers.m in Sources */,
 				D81F91A118411FA500076509 /* main.m in Sources */,

@@ -18,4 +18,5 @@
     #import "BPLogger.h"
     #import "BPTracker.h"
     #import "BPSecHelpers.h"
+    #import "BPSmootheningFilter.h"
 #endif

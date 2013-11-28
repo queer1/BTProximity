@@ -34,6 +34,7 @@
     self.isMonitoring = YES;
 
     [BPLogger log:@"starting..."];
+    [[BPSmootheningFilter sharedInstance] reset];
     [self updateRSSI];
     [BPLogger log:@"started"];
 
@@ -119,11 +120,11 @@
             BluetoothHCIRSSIValue rawRSSI = [self.device rawRSSI];
             if(reconnected)
             {
-                self.currentRSSI = rawRSSI;
-            }else
-            {
-                self.currentRSSI = (abs(self.currentRSSI) + abs(rawRSSI)) / 2 * ((rawRSSI < 0) ? -1 : 1);
+                [[BPSmootheningFilter sharedInstance] reset];
             }
+
+            [[BPSmootheningFilter sharedInstance] addSample:rawRSSI];
+            self.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
         }else
         {
             self.currentRSSI = 127;
