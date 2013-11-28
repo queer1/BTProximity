@@ -2,8 +2,8 @@
 //  BPAppDelegate.h
 //  BTProximity
 //
-//  Created by Bogdan Covaci on 23.11.2013.
-//  Copyright (c) 2013 Bogdan Covaci. All rights reserved.
+//  Created by Alex Covaci on 23.11.2013.
+//  Copyright (c) 2013 Alex Covaci. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>

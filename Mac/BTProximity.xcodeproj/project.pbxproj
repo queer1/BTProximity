@@ -256,7 +256,7 @@
 			attributes = {
 				CLASSPREFIX = BP;
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Bogdan Covaci";
+				ORGANIZATIONNAME = "Alex Covaci";
 				TargetAttributes = {
 					D81F91B118411FA600076509 = {
 						TestTargetID = D81F919018411FA500076509;
