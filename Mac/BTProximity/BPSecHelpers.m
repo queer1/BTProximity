@@ -13,8 +13,21 @@ NSString *password;
 
 @implementation BPSecHelpers
 
++ (BOOL)isScreenLocked
+{
+    BOOL locked = NO;
+    id o = [(NSDictionary*)CGSessionCopyCurrentDictionary() objectForKey:@"CGSSessionScreenIsLocked"];
+    if(o)
+    {
+        locked = [o boolValue];
+    }
+    return locked;
+}
+
 + (void)lock
 {
+    if([BPSecHelpers isScreenLocked]) return;
+
     int screensaverDelay = [BPSecHelpers getScreensaverDelay];
     BOOL screensaverAskForPassword = [BPSecHelpers getScreensaverAskForPassword];
 
@@ -45,6 +58,8 @@ NSString *password;
 
 + (void)unlock
 {
+    while(![BPSecHelpers isScreenLocked]) {};
+
     NSString *s = @"\
 tell application \"System Events\" to keystroke \"%@\"\n\
 tell application \"System Events\" to keystroke return\
