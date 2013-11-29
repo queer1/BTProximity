@@ -22,7 +22,7 @@
     static dispatch_once_t onceToken = 0;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[BPSmootheningFilter alloc] init];
-        sharedInstance.numberOfSamples = 4;
+        sharedInstance.numberOfSamples = 5;
         sharedInstance.currentSampleIndex = 0;
     });
     return sharedInstance;
