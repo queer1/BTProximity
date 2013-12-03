@@ -79,6 +79,11 @@ tell application \"System Events\" to keystroke return\
     password = [p copy];
 }
 
++ (NSString*)getPassword
+{
+    return [[password copy] autorelease];
+}
+
 #pragma mark - helpers
 + (int)getScreensaverDelay
 {

@@ -13,6 +13,8 @@
 
 + (void)lock;
 + (void)unlock;
+
 + (void)setPassword:(NSString*)password;
++ (NSString*)getPassword;
 
 @end

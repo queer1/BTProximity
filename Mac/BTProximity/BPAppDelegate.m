@@ -31,7 +31,7 @@
 
     [BPLogger log:[NSString stringWithFormat:@"power loss over 1 meter (perfect conditions): %.02f", [BPTracker powerLossOverMeters:1]]];
 
-    [BPSecHelpers setPassword:[SSKeychain passwordForService:@"BTProximity" account:@"BTProximity"]];
+//    [BPSecHelpers setPassword:[SSKeychain passwordForService:@"BTProximity" account:@"BTProximity"]];
 
     [BPTracker sharedTracker].rangeStatusUpdateBlock = ^(BPTracker *tracker){
         if(tracker.deviceInRange)
