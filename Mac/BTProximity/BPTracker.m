@@ -10,6 +10,7 @@
 
 
 @interface BPTracker ()
+@property (nonatomic, retain) NSDate *startDate;
 @end
 
 @implementation BPTracker
@@ -91,7 +92,7 @@
             }
         }
         
-        [NSThread sleepForTimeInterval:0.5];
+        [NSThread sleepForTimeInterval:0.25];
     }
     
     [pool release];
@@ -118,6 +119,9 @@
                 BluetoothHCIRSSIValue rawRSSI = [self.device rawRSSI];
                 [[BPSmootheningFilter sharedInstance] addSample:rawRSSI];
                 self.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
+
+                self.startDate = [NSDate date];
+                [self.device remoteNameRequest:self];
             }else
             {
                 self.currentRSSI = -127;
@@ -130,11 +134,17 @@
             }
         }
 
-        [NSThread sleepForTimeInterval:0.5];
+        [NSThread sleepForTimeInterval:0.25];
     }
 
     [self.device closeConnection];
     [pool release];
+}
+
+- (void)remoteNameRequestComplete:(IOBluetoothDevice *)device status:(IOReturn)status
+{
+    NSTimeInterval t = [[NSDate date] timeIntervalSinceDate:self.startDate];
+    NSLog(@"TIME: %.02f", t);
 }
 
 #pragma mark - misc
