@@ -27,7 +27,7 @@ typedef void (^BPRangeStatusUpdateBlock)(BPTracker *tracker);
 @property (nonatomic, assign) BluetoothHCIRSSIValue initialRSSI;
 @property (nonatomic, assign) BluetoothHCIRSSIValue currentRSSI;
 @property (nonatomic, assign) BOOL deviceInRange;
-@property (nonatomic, assign) BOOL isMonitoring;
+@property (nonatomic, readonly) BOOL isMonitoring;
 @property (nonatomic, assign) int inRangeThreshold; // default is -70, range is (weak signal) -127..+20 (strong signal)
 @property (nonatomic, copy) BPRangeStatusUpdateBlock rangeStatusUpdateBlock;
 @end

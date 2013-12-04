@@ -11,9 +11,6 @@
 
 @interface BPTracker ()
 @property (nonatomic, strong) NSTimer *timer;
-
-@property (nonatomic, assign) float initialDistance;
-@property (nonatomic, assign) float currentDistance;
 @end
 
 @implementation BPTracker
@@ -31,7 +28,7 @@
 
 - (void)startMonitoring
 {
-    self.isMonitoring = YES;
+    _isMonitoring = YES;
 
     [BPLogger log:@"starting..."];
     [[BPSmootheningFilter sharedInstance] reset];
@@ -39,46 +36,51 @@
     [BPLogger log:@"started"];
 
     self.deviceInRange = YES;
-    self.initialRSSI = self.currentRSSI;
-    self.initialDistance = (float)abs(self.currentRSSI) / [BPTracker powerLossOverMeters:1];
-
-    [BPLogger log:[NSString stringWithFormat:@"current estimated distance (in perfect conditions): %.02f meters", self.initialDistance]];
+    self.initialRSSI = MAXFLOAT;
 
     __block typeof(self) weakSelf = self;
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:0.5
-                                                   block:^(NSTimer *timer) {
-                                                       [weakSelf updateRSSI];
+    void (^__block updateStatusBlock)(void) = [^(void){
+        if(weakSelf.currentRSSI > weakSelf.inRangeThreshold)
+        {
+            if(!weakSelf.deviceInRange)
+            {
+                weakSelf.deviceInRange = YES;
 
-                                                       if(weakSelf.currentRSSI > weakSelf.inRangeThreshold)
-                                                       {
-                                                           if(!weakSelf.deviceInRange)
-                                                           {
-                                                               weakSelf.deviceInRange = YES;
+                if(weakSelf.rangeStatusUpdateBlock)
+                {
+                    weakSelf.rangeStatusUpdateBlock(weakSelf);
+                }
+            }
+        }else
+        {
+            if(weakSelf.deviceInRange)
+            {
+                weakSelf.deviceInRange = NO;
 
-                                                               if(weakSelf.rangeStatusUpdateBlock)
-                                                               {
-                                                                   weakSelf.rangeStatusUpdateBlock(weakSelf);
-                                                               }
-                                                           }
-                                                       }else
-                                                       {
-                                                           if(weakSelf.deviceInRange)
-                                                           {
-                                                               weakSelf.deviceInRange = NO;
-                                                               
-                                                               if(weakSelf.rangeStatusUpdateBlock)
-                                                               {
-                                                                   weakSelf.rangeStatusUpdateBlock(weakSelf);
-                                                               }
-                                                           }
-                                                       }
-                                                   }
-                                                 repeats:YES];
+                if(weakSelf.rangeStatusUpdateBlock)
+                {
+                    weakSelf.rangeStatusUpdateBlock(weakSelf);
+                }
+            }
+        }
+
+        if(weakSelf.isMonitoring)
+        {
+            double delayInSeconds = 0.5;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateStatusBlock);
+        }else
+        {
+            [updateStatusBlock release];
+        }
+    } copy];
+
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateStatusBlock);
 }
 
 - (void)stopMonitoring
 {
-    self.isMonitoring = NO;
+    _isMonitoring = NO;
 
     [BPLogger log:@"stopping..."];
     [self.device closeConnection];
@@ -104,39 +106,51 @@
 
 - (void)updateRSSI
 {
-    if(self.device)
-    {
-        BOOL reconnected = NO;
-
-        if(![self.device isConnected])
+    __block typeof(self) weakSelf = self;
+    void (^__block updateRSSIBlock)(void) = [^(void){
+        if(weakSelf.device)
         {
-            reconnected = ([self.device openConnection] == kIOReturnSuccess);
-        }
+            BOOL reconnected = NO;
 
-        if([self.device isConnected])
-        {
-            BluetoothHCIRSSIValue rawRSSI = [self.device rawRSSI];
-            if(reconnected)
+            if(![weakSelf.device isConnected])
             {
-                [[BPSmootheningFilter sharedInstance] reset];
+                reconnected = ([weakSelf.device openConnection] == kIOReturnSuccess);
             }
 
-            [[BPSmootheningFilter sharedInstance] addSample:rawRSSI];
-            self.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
+            if([weakSelf.device isConnected])
+            {
+                BluetoothHCIRSSIValue rawRSSI = [weakSelf.device rawRSSI];
+                if(reconnected)
+                {
+                    [[BPSmootheningFilter sharedInstance] reset];
+                }
+
+                [[BPSmootheningFilter sharedInstance] addSample:rawRSSI];
+                weakSelf.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
+            }else
+            {
+                weakSelf.currentRSSI = -127;
+                [BPLogger log:@"[!] couldn't connect. will attempt to reconnect on next tick."];
+            }
+
+            if(reconnected)
+            {
+                weakSelf.initialRSSI = weakSelf.currentRSSI;
+            }
+        }
+        
+        if(weakSelf.isMonitoring)
+        {
+            double delayInSeconds = 0.5;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+            dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateRSSIBlock);
         }else
         {
-            self.currentRSSI = -127;
-            [BPLogger log:@"[!] couldn't connect. will attempt to reconnect on next tick."];
+            [updateRSSIBlock release];
         }
+    } copy];
 
-        if(reconnected)
-        {
-            self.initialRSSI = self.currentRSSI;
-            self.initialDistance = (float)abs(self.currentRSSI) / [BPTracker powerLossOverMeters:1];
-        }
-    }
-
-    self.currentDistance = (float)abs(self.currentRSSI) / [BPTracker powerLossOverMeters:1];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateRSSIBlock);
 }
 
 #pragma mark - misc
