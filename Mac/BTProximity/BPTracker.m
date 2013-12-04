@@ -110,9 +110,7 @@
 
         if(![self.device isConnected])
         {
-            [BPLogger log:@"reopening connection"];
-            [self.device openConnection];
-            reconnected = YES;
+            reconnected = ([self.device openConnection] == kIOReturnSuccess);
         }
 
         if([self.device isConnected])
@@ -127,7 +125,8 @@
             self.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
         }else
         {
-            self.currentRSSI = 127;
+            self.currentRSSI = -127;
+            [BPLogger log:@"[!] couldn't connect. will attempt to reconnect on next tick."];
         }
 
         if(reconnected)
