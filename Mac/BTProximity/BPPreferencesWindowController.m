@@ -27,7 +27,6 @@
 {
     [super windowDidLoad];
 
-//    NSString *password = [SSKeychain passwordForService:@"BTProximity" account:@"BTProximity"];
     self.passwordTextField.stringValue = [BPSecHelpers getPassword] ? [BPSecHelpers getPassword] : @"";
 
     __block typeof(self) weakSelf = self;
@@ -70,8 +69,6 @@
 #pragma mark - text field delegate
 - (void)controlTextDidChange:(NSNotification *)obj
 {
-//    [SSKeychain deletePasswordForService:@"BTProximity" account:@"BTProximity"];
-//    [SSKeychain setPassword:self.passwordTextField.stringValue forService:@"BTProximity" account:@"BTProximity"];
     [BPSecHelpers setPassword:self.passwordTextField.stringValue];
 }
 
