@@ -101,6 +101,7 @@
     {
         self.device = [results objectAtIndex:0];
         [BPLogger log:[NSString stringWithFormat:@"selected %@ (%@)", self.device.name, self.device.addressString]];
+        [self.device closeConnection];
     }
 }
 
@@ -115,16 +116,12 @@
             if(![weakSelf.device isConnected])
             {
                 reconnected = ([weakSelf.device openConnection] == kIOReturnSuccess);
+                [[BPSmootheningFilter sharedInstance] reset];
             }
 
             if([weakSelf.device isConnected])
             {
                 BluetoothHCIRSSIValue rawRSSI = [weakSelf.device rawRSSI];
-                if(reconnected)
-                {
-                    [[BPSmootheningFilter sharedInstance] reset];
-                }
-
                 [[BPSmootheningFilter sharedInstance] addSample:rawRSSI];
                 weakSelf.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
             }else
