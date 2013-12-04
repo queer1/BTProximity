@@ -10,7 +10,6 @@
 
 
 @interface BPTracker ()
-@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation BPTracker
@@ -32,62 +31,19 @@
 
     [BPLogger log:@"starting..."];
     [[BPSmootheningFilter sharedInstance] reset];
-    [self updateRSSI];
+
+    [NSThread detachNewThreadSelector:@selector(_updateRSSI) toTarget:self withObject:nil];
+    [NSThread detachNewThreadSelector:@selector(_updateStatus) toTarget:self withObject:nil];
     [BPLogger log:@"started"];
 
     self.deviceInRange = YES;
-    self.initialRSSI = MAXFLOAT;
-
-    __block typeof(self) weakSelf = self;
-    void (^__block updateStatusBlock)(void) = [^(void){
-        if(weakSelf.currentRSSI > weakSelf.inRangeThreshold)
-        {
-            if(!weakSelf.deviceInRange)
-            {
-                weakSelf.deviceInRange = YES;
-
-                if(weakSelf.rangeStatusUpdateBlock)
-                {
-                    weakSelf.rangeStatusUpdateBlock(weakSelf);
-                }
-            }
-        }else
-        {
-            if(weakSelf.deviceInRange)
-            {
-                weakSelf.deviceInRange = NO;
-
-                if(weakSelf.rangeStatusUpdateBlock)
-                {
-                    weakSelf.rangeStatusUpdateBlock(weakSelf);
-                }
-            }
-        }
-
-        if(weakSelf.isMonitoring)
-        {
-            double delayInSeconds = 0.5;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-            dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateStatusBlock);
-        }else
-        {
-            [updateStatusBlock release];
-        }
-    } copy];
-
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateStatusBlock);
+    self.initialRSSI = -127;
 }
 
 - (void)stopMonitoring
 {
     _isMonitoring = NO;
-
-    [BPLogger log:@"stopping..."];
-    [self.device closeConnection];
     [BPLogger log:@"stopped"];
-
-    [self.timer invalidate];
-    self.timer = nil;
 }
 
 - (void)selectDevice
@@ -105,49 +61,80 @@
     }
 }
 
-- (void)updateRSSI
+- (void)_updateStatus
 {
-    __block typeof(self) weakSelf = self;
-    void (^__block updateRSSIBlock)(void) = [^(void){
-        if(weakSelf.device)
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    while(self.isMonitoring)
+    {
+        if(self.currentRSSI > self.inRangeThreshold)
+        {
+            if(!self.deviceInRange)
+            {
+                self.deviceInRange = YES;
+
+                if(self.rangeStatusUpdateBlock)
+                {
+                    self.rangeStatusUpdateBlock(self);
+                }
+            }
+        }else
+        {
+            if(self.deviceInRange)
+            {
+                self.deviceInRange = NO;
+
+                if(self.rangeStatusUpdateBlock)
+                {
+                    self.rangeStatusUpdateBlock(self);
+                }
+            }
+        }
+        
+        [NSThread sleepForTimeInterval:0.5];
+    }
+    
+    [pool release];
+}
+
+- (void)_updateRSSI
+{
+    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
+
+    while(self.isMonitoring)
+    {
+        if(self.device)
         {
             BOOL reconnected = NO;
 
-            if(![weakSelf.device isConnected])
+            if(![self.device isConnected])
             {
-                reconnected = ([weakSelf.device openConnection] == kIOReturnSuccess);
+                reconnected = ([self.device openConnection] == kIOReturnSuccess);
                 [[BPSmootheningFilter sharedInstance] reset];
             }
 
-            if([weakSelf.device isConnected])
+            if([self.device isConnected])
             {
-                BluetoothHCIRSSIValue rawRSSI = [weakSelf.device rawRSSI];
+                BluetoothHCIRSSIValue rawRSSI = [self.device rawRSSI];
                 [[BPSmootheningFilter sharedInstance] addSample:rawRSSI];
-                weakSelf.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
+                self.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
             }else
             {
-                weakSelf.currentRSSI = -127;
+                self.currentRSSI = -127;
                 [BPLogger log:@"[!] couldn't connect. will attempt to reconnect on next tick."];
             }
 
             if(reconnected)
             {
-                weakSelf.initialRSSI = weakSelf.currentRSSI;
+                self.initialRSSI = self.currentRSSI;
             }
         }
-        
-        if(weakSelf.isMonitoring)
-        {
-            double delayInSeconds = 0.5;
-            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-            dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateRSSIBlock);
-        }else
-        {
-            [updateRSSIBlock release];
-        }
-    } copy];
 
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), updateRSSIBlock);
+        [NSThread sleepForTimeInterval:0.5];
+    }
+
+    [self.device closeConnection];
+    [pool release];
 }
 
 #pragma mark - misc
