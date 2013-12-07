@@ -60,6 +60,13 @@ NSString *password;
 {
     while(![BPSecHelpers isScreenLocked]) {};
 
+    io_registry_entry_t r = IORegistryEntryFromPath(kIOMasterPortDefault, "IOService:/IOResources/IODisplayWrangler");
+    if(r)
+    {
+        IORegistryEntrySetCFProperty(r, CFSTR("IORequestIdle"), kCFBooleanFalse);
+        IOObjectRelease(r);
+    }
+
     NSString *s = @"\
 tell application \"System Events\" to keystroke \"%@\"\n\
 tell application \"System Events\" to keystroke return\
