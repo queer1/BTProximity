@@ -67,30 +67,33 @@
 
     while(self.isMonitoring)
     {
-        if(self.currentRSSI > self.inRangeThreshold)
+        if(self.device && [self.device isConnected])
         {
-            if(!self.deviceInRange)
+            if(self.currentRSSI > self.inRangeThreshold)
             {
-                self.deviceInRange = YES;
-
-                if(self.rangeStatusUpdateBlock)
+                if(!self.deviceInRange)
                 {
-                    self.rangeStatusUpdateBlock(self);
+                    self.deviceInRange = YES;
+
+                    if(self.rangeStatusUpdateBlock)
+                    {
+                        self.rangeStatusUpdateBlock(self);
+                    }
                 }
-            }
-        }else
-        {
-            if(self.deviceInRange)
+            }else
             {
-                self.deviceInRange = NO;
-
-                if(self.rangeStatusUpdateBlock)
+                if(self.deviceInRange)
                 {
-                    self.rangeStatusUpdateBlock(self);
+                    self.deviceInRange = NO;
+
+                    if(self.rangeStatusUpdateBlock)
+                    {
+                        self.rangeStatusUpdateBlock(self);
+                    }
                 }
             }
         }
-        
+
         [NSThread sleepForTimeInterval:0.25];
     }
     
