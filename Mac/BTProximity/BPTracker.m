@@ -120,7 +120,6 @@
                 self.currentRSSI = [[BPSmootheningFilter sharedInstance] getMedianValue];
             }else
             {
-                self.currentRSSI = -127;
                 [BPLogger log:@"[!] couldn't connect. will attempt to reconnect on next tick."];
             }
 
