@@ -10,4 +10,7 @@
 
 
 @interface BPCalibrationLockViewController : NSViewController
+
+- (IBAction)nextClicked:(id)sender;
+
 @end

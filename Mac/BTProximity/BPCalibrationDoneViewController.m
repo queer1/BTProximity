@@ -23,4 +23,9 @@
     return self;
 }
 
+#pragma mark - actions
+- (IBAction)closeClicked:(id)sender
+{
+    [[BPAppDelegate instance].calibrationWindowController close];
+}
 @end

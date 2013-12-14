@@ -7,7 +7,7 @@
 //
 
 #import "BPCalibrationPos2ViewController.h"
-
+#import "BPCalibrationDoneViewController.h"
 
 @interface BPCalibrationPos2ViewController ()
 @end
@@ -21,6 +21,24 @@
     {
     }
     return self;
+}
+
+- (void)pushNext
+{
+    BPCalibrationDoneViewController *controller = [[[BPCalibrationDoneViewController alloc] initWithNibName:@"BPCalibrationDoneViewController" bundle:nil] autorelease];
+
+    [[BPAppDelegate instance].calibrationWindowController.navigationController pushViewController:controller animated:YES];
+}
+
+- (void)loadView
+{
+    [super loadView];
+
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        [self pushNext];
+    });
 }
 
 @end

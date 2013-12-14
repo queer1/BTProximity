@@ -10,4 +10,7 @@
 
 
 @interface BPCalibrationDoneViewController : NSViewController
+
+- (IBAction)closeClicked:(id)sender;
+
 @end

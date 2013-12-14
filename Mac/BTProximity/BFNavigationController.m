@@ -59,7 +59,7 @@ static const CGFloat kPushPopAnimationDuration = 0.2;
             controller.view = [[NSView alloc] initWithFrame: aFrame];
         }
         
-        _viewControllers = [NSMutableArray array];
+        _viewControllers = [[NSMutableArray array] retain];
         [_viewControllers addObject: controller];
         controller.view.autoresizingMask = self.view.autoresizingMask;
         controller.view.frame = self.view.bounds;

@@ -7,7 +7,7 @@
 //
 
 #import "BPCalibrationLockViewController.h"
-
+#import "BPCalibrationPos1ViewController.h"
 
 @interface BPCalibrationLockViewController ()
 @end
@@ -21,5 +21,13 @@
     {
     }
     return self;
+}
+
+#pragma mark - actions
+- (IBAction)nextClicked:(id)sender
+{
+    BPCalibrationPos1ViewController *controller = [[[BPCalibrationPos1ViewController alloc] initWithNibName:@"BPCalibrationPos1ViewController" bundle:nil] autorelease];
+
+    [[BPAppDelegate instance].calibrationWindowController.navigationController pushViewController:controller animated:YES];
 }
 @end
