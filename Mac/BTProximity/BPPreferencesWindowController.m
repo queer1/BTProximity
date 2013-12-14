@@ -34,6 +34,8 @@
     self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:0.25
                                                          block:^(NSTimer *timer) {
                                                              weakSelf.RSSILabel.stringValue = [BPTracker sharedTracker].device ? [NSString stringWithFormat:@"RSSI: %d", [BPTracker sharedTracker].currentRSSI] : @"RSSI: not connected";
+                                                             NSString *deviceAddress = [BPTracker sharedTracker].device.addressString;
+                                                             weakSelf.thresholdLabel.stringValue = [NSString stringWithFormat:@"Device:\t%@\nIdle RSSI:\t\t%d\nThreshold RSSI:\t%d", [BPTracker sharedTracker].device.name, [BPDeviceRepo getIdleRSSIForDevice:deviceAddress], [BPDeviceRepo getThresholdRSSIForDevice:deviceAddress]];
 
                                                              NSAttributedString *s = [[[NSAttributedString alloc] initWithString:[BPLogger getStorage]] autorelease];
 
@@ -57,14 +59,6 @@
 - (IBAction)stopPressed:(id)sender
 {
     [[BPTracker sharedTracker] stopMonitoring];
-}
-
-- (IBAction)thresholdSliderChanged:(id)sender
-{
-    int value = self.thresholdSlider.intValue;
-
-    self.thresholdLabel.stringValue = [NSString stringWithFormat:@"Threshold: %d", value];
-    [BPTracker sharedTracker].inRangeThreshold = value;
 }
 
 #pragma mark - text field delegate

@@ -44,6 +44,8 @@
                                        finishedBlock:^(BPTracker *tracker, BluetoothHCIRSSIValue finalRSSI) {
                                            [BPLogger log:[NSString stringWithFormat:@"2nd reading done. final RSSI: %d", finalRSSI]];
                                            [BPDeviceRepo setThresholdRSSI:finalRSSI forDevice:tracker.device.addressString];
+                                           [BPTracker sharedTracker].inRangeThreshold = finalRSSI;
+
                                            [self pushNext];
                                        }];
 }

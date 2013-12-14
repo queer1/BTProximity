@@ -42,6 +42,8 @@
 {
     _isMonitoring = YES;
 
+    self.inRangeThreshold = [BPDeviceRepo getThresholdRSSIForDevice:self.device.addressString];
+
     [BPLogger log:@"starting..."];
     [[BPSmootheningFilter sharedInstance] reset];
 

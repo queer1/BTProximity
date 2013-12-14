@@ -16,11 +16,12 @@
 - (IBAction)selectDevicePressed:(id)sender;
 - (IBAction)startPressed:(id)sender;
 - (IBAction)stopPressed:(id)sender;
-- (IBAction)thresholdSliderChanged:(id)sender;
 
 @property (assign) IBOutlet NSTextField *RSSILabel;
 @property (assign) IBOutlet NSTextView *logTextView;
 @property (assign) IBOutlet NSSecureTextField *passwordTextField;
 @property (assign) IBOutlet NSTextField *thresholdLabel;
-@property (assign) IBOutlet NSSlider *thresholdSlider;
+@property (assign) IBOutlet NSButton *selectDeviceButton;
+@property (assign) IBOutlet NSButton *startButton;
+@property (assign) IBOutlet NSButton *stopButton;
 @end
