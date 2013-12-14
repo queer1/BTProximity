@@ -39,22 +39,26 @@
 + (void)setIdleRSSI:(int)RSSI forDevice:(NSString*)deviceAddress
 {
     NSMutableDictionary *devices = [BPDeviceRepo devices];
-    if(![devices objectForKey:deviceAddress])
+    NSMutableDictionary *deviceDict = [[devices objectForKey:deviceAddress] mutableCopy];
+    if(!deviceDict)
     {
-        [devices setObject:[NSMutableDictionary dictionary] forKey:deviceAddress];
+        deviceDict = [NSMutableDictionary dictionary];
     }
-    [[devices objectForKey:deviceAddress] setObject:[NSNumber numberWithInt:RSSI] forKey:kIdleRSSI];
+    [deviceDict setObject:[NSNumber numberWithInt:RSSI] forKey:kIdleRSSI];
+    [devices setObject:deviceDict forKey:deviceAddress];
     [BPDeviceRepo saveDevices:devices];
 }
 
 + (void)setThresholdRSSI:(int)RSSI forDevice:(NSString*)deviceAddress
 {
     NSMutableDictionary *devices = [BPDeviceRepo devices];
-    if(![devices objectForKey:deviceAddress])
+    NSMutableDictionary *deviceDict = [[devices objectForKey:deviceAddress] mutableCopy];
+    if(!deviceDict)
     {
-        [devices setObject:[NSMutableDictionary dictionary] forKey:deviceAddress];
+        deviceDict = [NSMutableDictionary dictionary];
     }
-    [[devices objectForKey:deviceAddress] setObject:[NSNumber numberWithInt:RSSI] forKey:kThresholdRSSI];
+    [deviceDict setObject:[NSNumber numberWithInt:RSSI] forKey:kThresholdRSSI];
+    [devices setObject:deviceDict forKey:deviceAddress];
     [BPDeviceRepo saveDevices:devices];
 }
 

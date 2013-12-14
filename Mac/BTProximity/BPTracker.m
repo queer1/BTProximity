@@ -83,8 +83,6 @@
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     float secondsStable = 0;
     BluetoothHCIRSSIValue currentRSSI = -127;
-    int currentValue = 0;
-    int lastValue = 0;
 
     [self.device closeConnection];
     while(1)
@@ -104,13 +102,11 @@
             {
                 currentRSSI = [self.device rawRSSI];
                 [[BPSmootheningFilter sharedInstance] addSample:currentRSSI];
-                currentValue = [[BPSmootheningFilter sharedInstance] getMedianValue];
 
-                if(abs(currentValue - lastValue) > self.readingDelta)
+                if([[BPSmootheningFilter sharedInstance] getMaximumVariation] > self.readingDelta)
                 {
                     secondsStable = 0;
                 }
-                lastValue = currentValue;
             }
 
             if(self.readingUpdateBlock)
@@ -123,7 +119,7 @@
             {
                 if(self.readingFinishedBlock)
                 {
-                    self.readingFinishedBlock(self, currentValue);
+                    self.readingFinishedBlock(self, [[BPSmootheningFilter sharedInstance] getMedianValue]);
                 }
                 break;
             }

@@ -10,4 +10,7 @@
 
 
 @interface BPCalibrationPos2ViewController : NSViewController
+
+- (IBAction)startClicked:(id)sender;
+
 @end

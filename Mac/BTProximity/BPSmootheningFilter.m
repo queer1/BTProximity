@@ -51,6 +51,11 @@
     self.currentSampleIndex = 0;
 }
 
+- (BOOL)isFilterFull
+{
+    return (self.currentSampleIndex == self.numberOfSamples);
+}
+
 - (int)getMedianValue
 {
     int accumulator = 0;

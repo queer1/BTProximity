@@ -18,6 +18,7 @@
 - (void)reset;
 - (int)getMedianValue;
 - (int)getMaximumVariation;
+- (BOOL)isFilterFull;
 
 @property (nonatomic, assign) int numberOfSamples;
 

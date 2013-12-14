@@ -30,9 +30,10 @@
     [[BPAppDelegate instance].calibrationWindowController.navigationController pushViewController:controller animated:YES];
 }
 
-- (void)loadView
+#pragma mark - actions
+- (IBAction)startClicked:(id)sender
 {
-    [super loadView];
+    [sender removeFromSuperview];
 
     [BPLogger log:@"getting 2nd reading..."];
     [[BPTracker sharedTracker] getReadingOverSeconds:5
@@ -42,8 +43,8 @@
                                          }
                                        finishedBlock:^(BPTracker *tracker, BluetoothHCIRSSIValue finalRSSI) {
                                            [BPLogger log:[NSString stringWithFormat:@"2nd reading done. final RSSI: %d", finalRSSI]];
+                                           [BPDeviceRepo setThresholdRSSI:finalRSSI forDevice:tracker.device.addressString];
                                            [self pushNext];
                                        }];
 }
-
 @end

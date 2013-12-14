@@ -30,6 +30,8 @@ BPAppDelegate *instance;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+//    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:[[NSBundle mainBundle] bundleIdentifier]];
+
     instance = self;
 
     self.statusBarItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
