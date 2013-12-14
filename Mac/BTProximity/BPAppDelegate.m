@@ -7,15 +7,20 @@
 //
 
 #import "BPAppDelegate.h"
-#import "BPPreferencesWindowController.h"
 
+
+BPAppDelegate *instance;
 
 @interface BPAppDelegate ()
 @property (nonatomic, retain) NSStatusItem *statusBarItem;
-@property (nonatomic, retain) BPPreferencesWindowController *preferencesController;
 @end
 
 @implementation BPAppDelegate
+
++ (BPAppDelegate*)instance
+{
+    return instance;
+}
 
 - (void)dealloc
 {
@@ -25,6 +30,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    instance = self;
+
     self.statusBarItem = [[NSStatusBar systemStatusBar] statusItemWithLength:NSSquareStatusItemLength];
     self.statusBarItem.image = [NSRunningApplication currentApplication].icon;
     self.statusBarItem.menu = self.statusBarMenu;
@@ -46,6 +53,21 @@
     dispatch_async(dispatch_get_main_queue(), ^{
         [self statusBarPreferencesPressed:nil];
     });
+
+    [BPTracker sharedTracker].deviceSelectedBlock = ^(BPTracker *tracker){
+        [BPLogger log:[NSString stringWithFormat:@"selected %@ (%@)", tracker.device.name, tracker.device.addressString]];
+
+        if(![BPDeviceRepo deviceExists:tracker.device.addressString])
+        {
+            [self.preferencesController.window close];
+
+            self.calibrationWindowController = [[[BPCalibrationWindowController alloc] initWithWindowNibName:@"BPCalibrationWindowController"] autorelease];
+            self.calibrationWindowController.window.delegate = self;
+
+            [[NSApplication sharedApplication] activateIgnoringOtherApps:YES];
+            [self.calibrationWindowController.window makeKeyAndOrderFront:nil];
+        }
+    };
 }
 
 #pragma mark - actions
@@ -94,6 +116,11 @@
     if(window == self.preferencesController.window)
     {
         self.preferencesController = nil;
+    }
+
+    if(window == self.calibrationWindowController.window)
+    {
+        self.calibrationWindowController = nil;
     }
 }
 
