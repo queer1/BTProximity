@@ -59,8 +59,6 @@ BPAppDelegate *instance;
 
         if(![BPDeviceRepo deviceExists:tracker.device.addressString])
         {
-            [self.preferencesController.window close];
-
             self.calibrationWindowController = [[[BPCalibrationWindowController alloc] initWithWindowNibName:@"BPCalibrationWindowController"] autorelease];
             self.calibrationWindowController.window.delegate = self;
 

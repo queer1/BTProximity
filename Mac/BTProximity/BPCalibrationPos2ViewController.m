@@ -34,11 +34,16 @@
 {
     [super loadView];
 
-    double delayInSeconds = 2.0;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
-    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        [self pushNext];
-    });
+    [BPLogger log:@"getting 2nd reading..."];
+    [[BPTracker sharedTracker] getReadingOverSeconds:5
+                                        allowedDelta:5
+                                         updateBlock:^(BPTracker *tracker, BluetoothHCIRSSIValue RSSI) {
+                                             [BPLogger log:[NSString stringWithFormat:@"reading tick. RSSI: %d", RSSI]];
+                                         }
+                                       finishedBlock:^(BPTracker *tracker, BluetoothHCIRSSIValue finalRSSI) {
+                                           [BPLogger log:[NSString stringWithFormat:@"2nd reading done. final RSSI: %d", finalRSSI]];
+                                           [self pushNext];
+                                       }];
 }
 
 @end

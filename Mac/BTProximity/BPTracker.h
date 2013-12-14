@@ -12,6 +12,8 @@
 @class BPTracker;
 typedef void (^BPRangeStatusUpdateBlock)(BPTracker *tracker);
 typedef void (^BPDeviceSelectedBlock)(BPTracker *tracker);
+typedef void (^BPReadingUpdateBlock)(BPTracker *tracker, BluetoothHCIRSSIValue RSSI);
+typedef void (^BPReadingFinishedBlock)(BPTracker *tracker, BluetoothHCIRSSIValue finalRSSI);
 
 @interface BPTracker : NSObject
 {
@@ -21,6 +23,8 @@ typedef void (^BPDeviceSelectedBlock)(BPTracker *tracker);
 - (void)selectDevice;
 - (void)startMonitoring;
 - (void)stopMonitoring;
+
+- (void)getReadingOverSeconds:(int)seconds allowedDelta:(int)delta updateBlock:(BPReadingUpdateBlock)updateBlock finishedBlock:(BPReadingFinishedBlock)finishedBlock;
 
 + (float)powerLossOverMeters:(float)meters;
 
