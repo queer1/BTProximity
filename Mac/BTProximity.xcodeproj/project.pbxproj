@@ -33,6 +33,14 @@
 		D8DB1031185CD37B00A1A4F3 /* NSView+BFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB102F185CD37B00A1A4F3 /* NSView+BFUtilities.m */; };
 		D8DB1035185CD3C100A1A4F3 /* BPCalibrationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB1033185CD3C100A1A4F3 /* BPCalibrationWindowController.m */; };
 		D8DB1036185CD3C100A1A4F3 /* BPCalibrationWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DB1034185CD3C100A1A4F3 /* BPCalibrationWindowController.xib */; };
+		D8DB103A185CD43600A1A4F3 /* BPCalibrationLockViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB1038185CD43600A1A4F3 /* BPCalibrationLockViewController.m */; };
+		D8DB103B185CD43600A1A4F3 /* BPCalibrationLockViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DB1039185CD43600A1A4F3 /* BPCalibrationLockViewController.xib */; };
+		D8DB103F185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB103D185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.m */; };
+		D8DB1040185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DB103E185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.xib */; };
+		D8DB1044185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB1042185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.m */; };
+		D8DB1045185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DB1043185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.xib */; };
+		D8DB1049185CD46F00A1A4F3 /* BPCalibrationDoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB1047185CD46F00A1A4F3 /* BPCalibrationDoneViewController.m */; };
+		D8DB104A185CD46F00A1A4F3 /* BPCalibrationDoneViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DB1048185CD46F00A1A4F3 /* BPCalibrationDoneViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +97,18 @@
 		D8DB1032185CD3C100A1A4F3 /* BPCalibrationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPCalibrationWindowController.h; sourceTree = "<group>"; };
 		D8DB1033185CD3C100A1A4F3 /* BPCalibrationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPCalibrationWindowController.m; sourceTree = "<group>"; };
 		D8DB1034185CD3C100A1A4F3 /* BPCalibrationWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPCalibrationWindowController.xib; sourceTree = "<group>"; };
+		D8DB1037185CD43600A1A4F3 /* BPCalibrationLockViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPCalibrationLockViewController.h; sourceTree = "<group>"; };
+		D8DB1038185CD43600A1A4F3 /* BPCalibrationLockViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPCalibrationLockViewController.m; sourceTree = "<group>"; };
+		D8DB1039185CD43600A1A4F3 /* BPCalibrationLockViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPCalibrationLockViewController.xib; sourceTree = "<group>"; };
+		D8DB103C185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPCalibrationPos1ViewController.h; sourceTree = "<group>"; };
+		D8DB103D185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPCalibrationPos1ViewController.m; sourceTree = "<group>"; };
+		D8DB103E185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPCalibrationPos1ViewController.xib; sourceTree = "<group>"; };
+		D8DB1041185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPCalibrationPos2ViewController.h; sourceTree = "<group>"; };
+		D8DB1042185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPCalibrationPos2ViewController.m; sourceTree = "<group>"; };
+		D8DB1043185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPCalibrationPos2ViewController.xib; sourceTree = "<group>"; };
+		D8DB1046185CD46F00A1A4F3 /* BPCalibrationDoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPCalibrationDoneViewController.h; sourceTree = "<group>"; };
+		D8DB1047185CD46F00A1A4F3 /* BPCalibrationDoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPCalibrationDoneViewController.m; sourceTree = "<group>"; };
+		D8DB1048185CD46F00A1A4F3 /* BPCalibrationDoneViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPCalibrationDoneViewController.xib; sourceTree = "<group>"; };
 		FA71F544DB4E4D85AC65640B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,6 +253,18 @@
 				D8DB1032185CD3C100A1A4F3 /* BPCalibrationWindowController.h */,
 				D8DB1033185CD3C100A1A4F3 /* BPCalibrationWindowController.m */,
 				D8DB1034185CD3C100A1A4F3 /* BPCalibrationWindowController.xib */,
+				D8DB1037185CD43600A1A4F3 /* BPCalibrationLockViewController.h */,
+				D8DB1038185CD43600A1A4F3 /* BPCalibrationLockViewController.m */,
+				D8DB1039185CD43600A1A4F3 /* BPCalibrationLockViewController.xib */,
+				D8DB103C185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.h */,
+				D8DB103D185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.m */,
+				D8DB103E185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.xib */,
+				D8DB1041185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.h */,
+				D8DB1042185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.m */,
+				D8DB1043185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.xib */,
+				D8DB1046185CD46F00A1A4F3 /* BPCalibrationDoneViewController.h */,
+				D8DB1047185CD46F00A1A4F3 /* BPCalibrationDoneViewController.m */,
+				D8DB1048185CD46F00A1A4F3 /* BPCalibrationDoneViewController.xib */,
 			);
 			name = Calibration;
 			sourceTree = "<group>";
@@ -329,12 +361,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8DB1040185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.xib in Resources */,
 				D81F919F18411FA500076509 /* InfoPlist.strings in Resources */,
 				D81F91AD18411FA500076509 /* Images.xcassets in Resources */,
+				D8DB104A185CD46F00A1A4F3 /* BPCalibrationDoneViewController.xib in Resources */,
+				D8DB1045185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.xib in Resources */,
 				D81F91A518411FA500076509 /* Credits.rtf in Resources */,
 				D83FD53D1844E47B005F3CB4 /* BPPreferencesWindowController.xib in Resources */,
 				D8DB1036185CD3C100A1A4F3 /* BPCalibrationWindowController.xib in Resources */,
 				D81F91AB18411FA500076509 /* MainMenu.xib in Resources */,
+				D8DB103B185CD43600A1A4F3 /* BPCalibrationLockViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -387,12 +423,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83FD5351844DDB9005F3CB4 /* BPTracker.m in Sources */,
+				D8DB1049185CD46F00A1A4F3 /* BPCalibrationDoneViewController.m in Sources */,
 				D83FD53B1844E177005F3CB4 /* BPLogger.m in Sources */,
 				D80A2B3D1847FE15009F2761 /* BPSmootheningFilter.m in Sources */,
 				D81F91A818411FA500076509 /* BPAppDelegate.m in Sources */,
+				D8DB103A185CD43600A1A4F3 /* BPCalibrationLockViewController.m in Sources */,
 				D83FD5381844DEC4005F3CB4 /* BPSecHelpers.m in Sources */,
+				D8DB1044185CD45E00A1A4F3 /* BPCalibrationPos2ViewController.m in Sources */,
 				D81F91A118411FA500076509 /* main.m in Sources */,
 				D8DB1035185CD3C100A1A4F3 /* BPCalibrationWindowController.m in Sources */,
+				D8DB103F185CD44E00A1A4F3 /* BPCalibrationPos1ViewController.m in Sources */,
 				D83FD5321844DD93005F3CB4 /* BPPreferencesWindowController.m in Sources */,
 				D8DB1031185CD37B00A1A4F3 /* NSView+BFUtilities.m in Sources */,
 				D8DB1030185CD37B00A1A4F3 /* BFNavigationController.m in Sources */,
