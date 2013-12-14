@@ -31,6 +31,8 @@
 		D83FD53D1844E47B005F3CB4 /* BPPreferencesWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D83FD53C1844E47B005F3CB4 /* BPPreferencesWindowController.xib */; };
 		D8DB1030185CD37B00A1A4F3 /* BFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB102C185CD37B00A1A4F3 /* BFNavigationController.m */; };
 		D8DB1031185CD37B00A1A4F3 /* NSView+BFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB102F185CD37B00A1A4F3 /* NSView+BFUtilities.m */; };
+		D8DB1035185CD3C100A1A4F3 /* BPCalibrationWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DB1033185CD3C100A1A4F3 /* BPCalibrationWindowController.m */; };
+		D8DB1036185CD3C100A1A4F3 /* BPCalibrationWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8DB1034185CD3C100A1A4F3 /* BPCalibrationWindowController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +86,9 @@
 		D8DB102D185CD37B00A1A4F3 /* BFViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BFViewController.h; sourceTree = "<group>"; };
 		D8DB102E185CD37B00A1A4F3 /* NSView+BFUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSView+BFUtilities.h"; sourceTree = "<group>"; };
 		D8DB102F185CD37B00A1A4F3 /* NSView+BFUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSView+BFUtilities.m"; sourceTree = "<group>"; };
+		D8DB1032185CD3C100A1A4F3 /* BPCalibrationWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BPCalibrationWindowController.h; sourceTree = "<group>"; };
+		D8DB1033185CD3C100A1A4F3 /* BPCalibrationWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BPCalibrationWindowController.m; sourceTree = "<group>"; };
+		D8DB1034185CD3C100A1A4F3 /* BPCalibrationWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BPCalibrationWindowController.xib; sourceTree = "<group>"; };
 		FA71F544DB4E4D85AC65640B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -225,6 +230,9 @@
 		D8DB1029185CD23100A1A4F3 /* Calibration */ = {
 			isa = PBXGroup;
 			children = (
+				D8DB1032185CD3C100A1A4F3 /* BPCalibrationWindowController.h */,
+				D8DB1033185CD3C100A1A4F3 /* BPCalibrationWindowController.m */,
+				D8DB1034185CD3C100A1A4F3 /* BPCalibrationWindowController.xib */,
 			);
 			name = Calibration;
 			sourceTree = "<group>";
@@ -325,6 +333,7 @@
 				D81F91AD18411FA500076509 /* Images.xcassets in Resources */,
 				D81F91A518411FA500076509 /* Credits.rtf in Resources */,
 				D83FD53D1844E47B005F3CB4 /* BPPreferencesWindowController.xib in Resources */,
+				D8DB1036185CD3C100A1A4F3 /* BPCalibrationWindowController.xib in Resources */,
 				D81F91AB18411FA500076509 /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +392,7 @@
 				D81F91A818411FA500076509 /* BPAppDelegate.m in Sources */,
 				D83FD5381844DEC4005F3CB4 /* BPSecHelpers.m in Sources */,
 				D81F91A118411FA500076509 /* main.m in Sources */,
+				D8DB1035185CD3C100A1A4F3 /* BPCalibrationWindowController.m in Sources */,
 				D83FD5321844DD93005F3CB4 /* BPPreferencesWindowController.m in Sources */,
 				D8DB1031185CD37B00A1A4F3 /* NSView+BFUtilities.m in Sources */,
 				D8DB1030185CD37B00A1A4F3 /* BFNavigationController.m in Sources */,
