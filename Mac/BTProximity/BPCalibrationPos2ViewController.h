@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BPCalibrationPos2ViewController : NSViewController
 
+@interface BPCalibrationPos2ViewController : NSViewController
 @end

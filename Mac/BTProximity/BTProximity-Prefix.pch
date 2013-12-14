@@ -20,4 +20,6 @@
     #import "BPSecHelpers.h"
     #import "BPSmootheningFilter.h"
     #import "BPDeviceRepo.h"
+
+    #import "BPAppDelegate.h"
 #endif

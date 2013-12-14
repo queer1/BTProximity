@@ -108,20 +108,4 @@ BPAppDelegate *instance;
     [[NSRunningApplication currentApplication] terminate];
 }
 
-#pragma mark - window delegate
-- (void)windowWillClose:(NSNotification *)notification
-{
-    NSWindow *window = (NSWindow*)notification.object;
-
-    if(window == self.preferencesController.window)
-    {
-        self.preferencesController = nil;
-    }
-
-    if(window == self.calibrationWindowController.window)
-    {
-        self.calibrationWindowController = nil;
-    }
-}
-
 @end

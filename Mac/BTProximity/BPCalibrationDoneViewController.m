@@ -8,8 +8,8 @@
 
 #import "BPCalibrationDoneViewController.h"
 
-@interface BPCalibrationDoneViewController ()
 
+@interface BPCalibrationDoneViewController ()
 @end
 
 @implementation BPCalibrationDoneViewController
@@ -17,8 +17,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
+    if(self)
+    {
     }
     return self;
 }

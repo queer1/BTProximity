@@ -8,6 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface BPCalibrationLockViewController : NSViewController
 
+@interface BPCalibrationLockViewController : NSViewController
 @end

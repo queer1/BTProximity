@@ -8,8 +8,8 @@
 
 #import "BPCalibrationPos1ViewController.h"
 
-@interface BPCalibrationPos1ViewController ()
 
+@interface BPCalibrationPos1ViewController ()
 @end
 
 @implementation BPCalibrationPos1ViewController
@@ -17,8 +17,8 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Initialization code here.
+    if(self)
+    {
     }
     return self;
 }

@@ -7,8 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "BFNavigationController.h"
 
 
 @interface BPCalibrationWindowController : NSWindowController
-
+@property (nonatomic, retain) BFNavigationController *navigationController;
 @end
