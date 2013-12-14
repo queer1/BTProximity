@@ -17,6 +17,7 @@
 - (void)addSample:(int)value;
 - (void)reset;
 - (int)getMedianValue;
+- (int)getMaximumVariation;
 
 @property (nonatomic, assign) int numberOfSamples;
 

@@ -61,6 +61,21 @@
     return accumulator / (int)self.samples.count;
 }
 
+- (int)getMaximumVariation
+{
+    int min = [[self.samples firstObject] intValue];
+    int max = [[self.samples firstObject] intValue];
+
+    for(NSNumber *n in self.samples)
+    {
+        int nn = [n intValue];
+        if(nn > max) max = nn;
+        if(nn < min) min = nn;
+    }
+
+    return max - min;
+}
+
 #pragma mark - setters
 - (void)setNumberOfSamples:(int)numberOfSamples
 {
