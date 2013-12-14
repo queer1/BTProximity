@@ -56,8 +56,12 @@
     if(results)
     {
         self.device = [results objectAtIndex:0];
-        [BPLogger log:[NSString stringWithFormat:@"selected %@ (%@)", self.device.name, self.device.addressString]];
         [self.device closeConnection];
+
+        if(self.deviceSelectedBlock)
+        {
+            self.deviceSelectedBlock(self);
+        }
     }
 }
 

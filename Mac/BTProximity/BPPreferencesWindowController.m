@@ -17,6 +17,7 @@
 
 - (void)dealloc
 {
+    [BPTracker sharedTracker].deviceSelectedBlock = nil;
     [self.updateTimer invalidate];
     self.updateTimer = nil;
 
@@ -40,6 +41,10 @@
                                                              [weakSelf.logTextView scrollRangeToVisible:NSMakeRange([[weakSelf.logTextView string] length], 0)];
                                                          }
                                                        repeats:YES];
+
+    [BPTracker sharedTracker].deviceSelectedBlock = ^(BPTracker *tracker){
+        [BPLogger log:[NSString stringWithFormat:@"selected %@ (%@)", tracker.device.name, tracker.device.addressString]];
+    };
 }
 
 #pragma mark - actions

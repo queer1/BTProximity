@@ -11,6 +11,7 @@
 
 @class BPTracker;
 typedef void (^BPRangeStatusUpdateBlock)(BPTracker *tracker);
+typedef void (^BPDeviceSelectedBlock)(BPTracker *tracker);
 
 @interface BPTracker : NSObject
 {
@@ -30,4 +31,5 @@ typedef void (^BPRangeStatusUpdateBlock)(BPTracker *tracker);
 @property (nonatomic, readonly) BOOL isMonitoring;
 @property (nonatomic, assign) int inRangeThreshold; // default is -70, range is (weak signal) -127..+20 (strong signal)
 @property (nonatomic, copy) BPRangeStatusUpdateBlock rangeStatusUpdateBlock;
+@property (nonatomic, copy) BPDeviceSelectedBlock deviceSelectedBlock;
 @end
